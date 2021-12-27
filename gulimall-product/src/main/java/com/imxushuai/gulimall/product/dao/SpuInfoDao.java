@@ -10,5 +10,6 @@ import org.apache.ibatis.annotations.Mapper;
  */
 @Mapper
 public interface SpuInfoDao extends BaseMapper<SpuInfoEntity> {
-	
+
+    void updateSpuStatus(Long spuId, int code);
 }
