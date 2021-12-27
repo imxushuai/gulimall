@@ -1,0 +1,10 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        namespace: cad8d252-b4a6-4634-9ef2-5e963d361395
+        ext-config:
+          - data-id: routing.yml
+            group: DEFAULT_GROUP
+            refresh: true
