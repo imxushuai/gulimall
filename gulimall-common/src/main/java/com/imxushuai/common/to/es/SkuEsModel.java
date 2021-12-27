@@ -20,10 +20,10 @@ public class SkuEsModel {
     private String brandName;
     private String brandImg;
     private String catalogName;
-    private List<Attr> attrs;
+    private List<Attrs> attrs;
 
     @Data
-    public static class Attr{
+    public static class Attrs {
         private Long attrId;
         private String attrName;
         private String attrValue;

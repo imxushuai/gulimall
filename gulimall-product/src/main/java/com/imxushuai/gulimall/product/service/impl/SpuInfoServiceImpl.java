@@ -273,10 +273,10 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         // 过滤出可被检索的基本属性id，即search_type = 1 [数据库中目前 4、5、6、11不可检索]
         Set<Long> ids = new HashSet<>(attrService.selectSearchAttrIds(attrIds));
         // 可被检索的属性封装到SkuEsModel.Attrs中
-        List<SkuEsModel.Attr> attrs = baseAttrs.stream()
+        List<SkuEsModel.Attrs> attrs = baseAttrs.stream()
                 .filter(item -> ids.contains(item.getAttrId()))
                 .map(item -> {
-                    SkuEsModel.Attr attr = new SkuEsModel.Attr();
+                    SkuEsModel.Attrs attr = new SkuEsModel.Attrs();
                     BeanUtils.copyProperties(item, attr);
                     return attr;
                 }).collect(Collectors.toList());

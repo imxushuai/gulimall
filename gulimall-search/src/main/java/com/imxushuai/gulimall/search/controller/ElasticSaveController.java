@@ -16,7 +16,7 @@ import java.util.List;
 
 @Slf4j
 @RestController
-@RequestMapping
+@RequestMapping("/search/save")
 public class ElasticSaveController {
 
     @Autowired

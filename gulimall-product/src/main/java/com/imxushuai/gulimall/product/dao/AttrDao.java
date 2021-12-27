@@ -3,6 +3,7 @@ package com.imxushuai.gulimall.product.dao;
 import com.imxushuai.gulimall.product.entity.AttrEntity;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,5 +14,5 @@ import java.util.List;
 @Mapper
 public interface AttrDao extends BaseMapper<AttrEntity> {
 
-    List<Long> selectSearchAttrIds(List<Long> attrIds);
+    List<Long> selectSearchAttrIds(@Param("attrIds") List<Long> attrIds);
 }
