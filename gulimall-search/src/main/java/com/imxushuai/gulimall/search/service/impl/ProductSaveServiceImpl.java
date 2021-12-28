@@ -50,10 +50,13 @@ public class ProductSaveServiceImpl implements ProductSaveService {
 		}
 		// bulk批量保存
 		BulkResponse bulk = client.bulk(bulkRequest, ElasticsearchConfiguration.COMMON_OPTIONS);
-		// TODO 是否拥有错误
+		// 是否拥有错误
 		boolean hasFailures = bulk.hasFailures();
 		if(hasFailures){
-			List<String> collect = Arrays.stream(bulk.getItems()).map(BulkItemResponse::getId).collect(Collectors.toList());
+			List<String> collect = Arrays.stream(bulk.getItems())
+					.filter(BulkItemResponse::isFailed)
+					.map(BulkItemResponse::getId)
+					.collect(Collectors.toList());
 			log.error("商品上架错误：{}",collect);
 		}
 		return hasFailures;
